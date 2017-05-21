@@ -3,17 +3,21 @@ export function getIntersection<T>(array1: Array<T>, array2: Array<T>): Array<T>
     // filter duplicated values
     // new _array variables to avoid modifiying original arrays
     // since getUniqueElement return a new array (new reference)
-    let _array1 = getUniqueElements(array1);
-    let _array2 = getUniqueElements(array2);
+    let uniqueElements1 = getUniqueElements(array1);
+    let uniqueElements2 = getUniqueElements(array2);
     let intersection = new Array<T>();
-    let longerArray = getLongerArray(_array1, _array2);
-    let shorterArray = getShorterArray(_array1, _array2);
+    let longerArray = getLongerArray(uniqueElements1, uniqueElements2);
+    let shorterArray = getShorterArray(uniqueElements1, uniqueElements2);
 
-    shorterARray.map(element => {
-
+    intersection = shorterArray.filter((element, _index, _arr) => {
+        if (typeof element === 'string' || typeof element === 'number') {
+            return longerArray.indexOf(element) > -1;
+        } else {
+            // TODO implement this
+            // idea: iterate over the arrays, return JSON.parse(object) === JSON.parse(object)
+            return false;
+        }
     })
-    intersection = [];
-
 
     return intersection;
 }

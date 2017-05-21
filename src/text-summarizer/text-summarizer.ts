@@ -29,13 +29,37 @@ export class TextSummarizer {
         return sentences;
     }
 
-    sentncesIntersection(sentence1: string, sentence2: string) {
-        // split the sentence into words
-        let words1 = sentence1.split('\s');
-        let words2 = sentence2.split('\s');
+    sentencesIntersection(sentence1: string, sentence2: string) {
+        let words1 = sentence1.split(spaceRegex);
+        words1 = words1.filter((word) => {
+            if (word) {
+                return true;
+            }
+        })
+        let words2 = sentence2.split(spaceRegex);
 
-        if ()
 
+    }
+    /**
+     * 
+     * @param sentence 
+     * Break corpus into words/tokens
+     */
+    tokenizer(sentence: string): Array<string> {
+        let result;
+
+        // http://ccl.pku.edu.cn/doubtfire/NLP/Lexical_Analysis/Word_Tokenization/Tokenization.htm
+        let tokenRegex = /(\w+)|(\$\d+\.\d+)|([^\w\s]+)/g;
+
+        if (sentence.length > 0) {
+            result = sentence.match(tokenRegex);
+            // because string.Prototype.match can return null
+            result ? result = result : result = new Array<string>();
+        } else {
+            result = new Array<string>();
+        }
+
+        return <Array<string>>result;
     }
 
 
