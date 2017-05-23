@@ -1,4 +1,10 @@
 
+/**
+ * 
+ * @param array1 
+ * @param array2 
+ * @return Array contains the intersection between the two ararys
+ */
 export function getIntersection<T>(array1: Array<T>, array2: Array<T>): Array<T> {
     // filter duplicated values
     // new _array variables to avoid modifiying original arrays

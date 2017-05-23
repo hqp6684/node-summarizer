@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "build:run": "webpack --config webpack.config.js && node ./dist/main.bundle.js"
   },
   "keywords": [],
   "author": "",
